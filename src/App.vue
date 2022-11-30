@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <section class="container">
+    <Navbar />
+    <Banner />
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Navbar from "@/components/Navbar.vue";
+import Banner from "@/components/Banner.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Navbar,
+    Banner,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.container {
+  max-width: 100%;
+
+  background: linear-gradient(
+    129.86deg,
+    #21e8c4 -20.42%,
+    #179b93 -3.13%,
+    #267b87 24.22%,
+    #0f474f 72.75%
+  );
 }
 </style>
