@@ -2,16 +2,19 @@
   <section class="container">
     <Navbar />
     <Banner />
+    <Products />
   </section>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Banner from "@/components/Banner.vue";
+import Products from "@/components/Products.vue";
 export default {
   components: {
     Navbar,
     Banner,
+    Products,
   },
 };
 </script>
