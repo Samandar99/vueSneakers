@@ -22,14 +22,39 @@
         </div>
       </div>
       <div class="banner-right">
-       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem laborum voluptas quidem voluptate, soluta cumque consectetur inventore omnis impedit ex possimus. Doloribus sapiente est id obcaecati quaerat repudiandae, blanditiis debitis.
+        <div class="banner-sneak" v-for="sneaker in sneakers" :key="sneaker.id">
+          <img :src="sneaker.imgs" alt="" />
+          <p>{{ sneaker.name }}</p>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      sneakers: [
+        {
+          id: 1,
+          name: "rafa-hard-court",
+          imgs: require("../assets/images/sneaker.png"),
+        },
+        {
+          id: 2,
+          name: "pro-hard-court",
+          imgs: require("../assets/images/sneaker1.png"),
+        },
+        {
+          id: 3,
+          name: "Vapor Cage 4 Rafa",
+          imgs: require("../assets/images/sneaker.png"),
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -44,6 +69,7 @@ export default {};
 }
 .banner-info {
   display: flex;
+  gap: 3rem;
 }
 
 .banner-wrapper h1 {
@@ -99,7 +125,7 @@ export default {};
   letter-spacing: 0.015em;
 }
 .banner-info-button {
-  padding: 16px 70px;
+  padding: 16px 50px;
   background: linear-gradient(
     106.81deg,
     #179b93 43.2%,
@@ -114,8 +140,55 @@ export default {};
   font-size: 20px;
 }
 
+.banner-right {
+  margin-top: 10rem;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.banner-sneak {
+  width: 152px;
+  height: 139px;
+  background: linear-gradient(
+    180deg,
+    rgba(250, 255, 35, 0.99) -4.65%,
+    rgba(250, 255, 35, 0) 100%
+  );
+  border-radius: 28px;
+  margin-bottom: 5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.banner-sneak:hover {
+  transform: scale(1.1);
+  background: #faff23;
+}
+
+.banner-sneak img {
+  display: block;
+}
+.banner-sneak p {
+  color: #ffffff;
+
+  display: block;
+}
+
 /* media */
-@media (min-width: 766px) and (max-width: 950px) {
+
+
+@media (min-width: 969px) and (max-width: 1009px) {
+  .banner-tite {
+    display: flex;
+    justify-content: space-around;
+    gap: 100px;
+    position: relative;
+  }
+}
+
+
+
+@media (min-width: 766px) and (max-width: 968px) {
   .banner-tite {
     display: flex;
     flex-direction: column;
@@ -144,6 +217,12 @@ export default {};
   }
   h1 {
     margin-top: 5rem;
+  }
+  .banner-right {
+    margin-top: 0rem;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
   }
 }
 
@@ -191,6 +270,14 @@ export default {};
     z-index: 99;
     overflow: hidden;
   }
+  .banner-right {
+    margin-top: 0rem;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
 }
 
 @media (max-width: 549.9px) {
@@ -246,6 +333,14 @@ export default {};
     color: #ffffff;
     font-size: 18px;
     letter-spacing: 0.015em;
+  }
+  .banner-right {
+    margin-top: 0rem;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
   }
 }
 </style>
