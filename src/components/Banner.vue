@@ -77,7 +77,7 @@ export default {
   font-weight: 900;
   width: 145px;
   line-height: 129%;
-  color: #ffffff;
+  color: #454040;
 }
 .banner-tite {
   display: flex;
@@ -120,7 +120,7 @@ export default {
 .banner-info-text {
   width: 420px;
   text-transform: capitalize;
-  color: #ffffff;
+  color: #454040;
   font-size: 18px;
   letter-spacing: 0.015em;
 }
@@ -138,6 +138,13 @@ export default {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.banner-info-button:hover {
+  background: none;
+  border: 1px solid #cfcdcd;
+  color: #179b93;
 }
 
 .banner-right {
@@ -176,7 +183,6 @@ export default {
 
 /* media */
 
-
 @media (min-width: 969px) and (max-width: 1009px) {
   .banner-tite {
     display: flex;
@@ -185,8 +191,6 @@ export default {
     position: relative;
   }
 }
-
-
 
 @media (min-width: 766px) and (max-width: 968px) {
   .banner-tite {
@@ -277,7 +281,6 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
   }
-
 }
 
 @media (max-width: 549.9px) {

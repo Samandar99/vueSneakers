@@ -75,7 +75,7 @@ export default {
 }
 .nav-menu li a {
   text-decoration: none;
-  color: #ece2e2;
+  color: #404040;
 }
 
 .nav-serach {
