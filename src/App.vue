@@ -3,7 +3,7 @@
     <Navbar />
     <Banner />
   </section>
-  <Products />
+  <Products :products="products" />
 </template>
 
 <script>
@@ -15,6 +15,58 @@ export default {
     Navbar,
     Banner,
     Products,
+  },
+
+  data() {
+    return {
+      products: [
+        {
+          id: 1,
+          name: "Nike Blazer Mid Suede Mens Sneakers",
+          img: require("@/assets/images/image6.jpg"),
+        },
+        {
+          id: 2,
+          name: "Nike Blazer Mid Suede Nike Air Max 270",
+          img: require("@/assets/images/image7.jpg"),
+        },
+        {
+          id: 3,
+          name: "X Aka Boku Future Rider Nike Blazer Mid",
+          img: require("@/assets/images/image8.jpg"),
+        },
+        {
+          id: 4,
+          name: "X Aka Boku Future Under Armour Curry 8",
+          img: require("@/assets/images/image9.jpg"),
+        },
+        {
+          id: 5,
+          name: "X Aka Boku Future Under Nike Kyrie 7",
+          img: require("@/assets/images/image10.jpg"),
+        },
+        {
+          id: 6,
+          name: "X Aka Boku Future Jordan Air Jordan 11",
+          img: require("@/assets/images/image11.jpg"),
+        },
+        {
+          id: 7,
+          name: "X Aka Boku Nike LeBron XVIII",
+          img: require("@/assets/images/image12.jpg"),
+        },
+        {
+          id: 8,
+          name: "X Aka Boku Nike Lebron XVII",
+          img: require("@/assets/images/image13.jpg"),
+        },
+        {
+          id: 9,
+          name: "X Aka Boku Nike Blazer Mid Suede",
+          img: require("@/assets/images/image14.jpg"),
+        },
+      ],
+    };
   },
 };
 </script>

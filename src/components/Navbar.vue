@@ -21,7 +21,13 @@
         <img class="ros" src="@/assets/images/Vector.svg" alt="" />
         <span class="nav-search-text">search</span>
       </button>
-      <img class="cart-icon" src="@/assets/images/Combined-Shape.svg" alt="" />
+
+      <button class="cart-button-icon">
+        <div class="count">
+          0
+        </div> 
+        <i class="fas fa-shopping-cart fa-lg cart-icon"></i>
+      </button>
 
       <button class="close-icon" @click="isActive = !isActive">
         <i class="fa-solid fa-xmark fa-2x" v-if="!isActive"></i>
@@ -81,6 +87,7 @@ export default {
 .nav-serach {
   display: flex;
   gap: 55px;
+  align-items: center;
 }
 .nav-button {
   padding: 10px 60px 10px 10px;
@@ -96,6 +103,25 @@ export default {
 }
 .close-icon {
   display: none;
+}
+
+.cart-icon {
+  color: #0cadde;
+  cursor: pointer;
+}
+
+.cart-button-icon{
+  border: none;
+  background: none;
+}
+
+.count{
+  width: 18px;
+  height: 18px;
+  background-color: #21e8c4;
+  color: #fff;
+  border-radius: 50%;
+  margin-left: 1rem;
 }
 
 /* media */

@@ -3,77 +3,12 @@
     <h1 class="headeProducts-title">All running shoes</h1>
 
     <div class="sneakers">
-      <div class="box">
-        <img class="nike-sneaker" src="@/assets/images/image1.png" alt="" />
-        <h5>Nike Blazer Mid Suede Men's Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="box">
-        <img class="nike-sneaker" src="@/assets/images/image6.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Men's Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="box">
-        <img class="nike-sneaker" src="@/assets/images/image7.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Men's Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="box">
-        <img class="nike-sneaker" src="@/assets/images/image8.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Men's Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="box">
-        <img class="nike-sneaker" src="@/assets/images/image9.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Men's Sneakers</h5>
+      <div class="box" v-for="(product, index) in products" :key="index">
+        <button class="heart-icon">
+          <img src="@/assets/images/heart.svg" alt="" />
+        </button>
+        <img class="nike-sneaker" :src="product.img" alt="" />
+        <h5>{{product.name}}</h5>
         <div class="boxButton">
           <div class="boxButton-price">
             <span>Price:</span>
@@ -93,7 +28,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    products: {
+      typeof: Array,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -111,10 +52,13 @@ export default {};
 }
 .box {
   border: 1px solid #f3f3f3;
-  padding: 20px;
+  padding: 30px;
   width: 220px;
   border-radius: 40px;
   transition: all 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .box:hover {
@@ -168,6 +112,19 @@ span {
   text-transform: uppercase;
   color: #bdbdbd;
 }
+.heart-icon {
+  background: none;
+  border: 1px solid #f8f8f8;
+  position: absolute;
+  left: 1.5rem;
+  top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+}
 
 @media (min-width: 969px) and (max-width: 1009px) {
   .sneakers {
@@ -211,7 +168,7 @@ span {
 }
 
 @media (max-width: 479.9px) {
-   .sneakers {
+  .sneakers {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
@@ -223,5 +180,4 @@ span {
     text-align: center;
   }
 }
-
 </style>
