@@ -1,86 +1,156 @@
 <template>
-  <section class="container">
-    <Navbar />
-    <Banner />
+  <section class="container__banner">
+    <div class="navbar">
+      <nav :class="{ active: !openMenu }">
+        <div class="logo__nav">
+          <img src="@/assets/images/NIKE.svg" alt="" />
+          <img
+            class="nike__icon"
+            src="@/assets/images/simple-icons_nike.png"
+            alt=""
+          />
+        </div>
+
+        <div class="nav__left" :class="{ actives: !openMenu }">
+          <ul class="nav-items">
+            <li><a href="">Home</a></li>
+            <li><a href="">Women</a></li>
+            <li><a href="">Kids</a></li>
+            <li><a href="">Customise</a></li>
+          </ul>
+          <div class="nav__Search">
+            <div class="nav__input-search">
+              <img class="cart__icon" src="@/assets/images/Vector.svg" alt="" />
+              <input type="text" placeholder="Search" />
+            </div>
+            <div class="cart-icons">
+              <img src="@/assets/images/Combined-Shape.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <button class="btn-close" @click="openMenu = !openMenu">
+          <i class="fa fa-times fa-2x close-icon" v-if="openMenu"></i>
+          <i class="fa-solid fa-bars fa-2x close-icon" v-else></i>
+        </button>
+      </nav>
+    </div>
+
+    <div class="banner">
+      <div class="banner__left">
+        <h1>JUST DO IT</h1>
+        <p class="banner__text">
+          Innovated to withstand your toughest matches, this updated design puts
+          flexible, durable materials exactly where they're needed most.
+        </p>
+        <button class="banner__btn">SHOP NOW</button>
+      </div>
+      <div class="banner__right">
+        <div class="os">
+          <img class="banner__foto" src="@/assets/images/nike.png" alt="" />
+        </div>
+        
+      </div>
+    </div>
   </section>
-  <Products :products="products" />
+
+  <section class="products-wrpper">
+    <h1 class="headeProducts-title">All running shoes</h1>
+
+    <div class="sneakers">
+      <div class="box">
+        <button class="heart-icon">
+          <img src="@/assets/images/heart.svg" alt="" />
+        </button>
+        <img class="nike-sneaker" src="@/assets/images/image11.jpg" alt="" />
+        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
+        <div class="boxButton">
+          <div class="boxButton-price">
+            <span>Price:</span>
+            <b>12 999 $.</b>
+          </div>
+          <button class="button-iconPlus">
+            <img
+              class="icon_plus"
+              src="@/assets/images/VectorPlus.svg"
+              alt="Plus"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="box">
+        <button class="heart-icon">
+          <img src="@/assets/images/heart.svg" alt="" />
+        </button>
+        <img class="nike-sneaker" src="@/assets/images/image6.jpg" alt="" />
+        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
+        <div class="boxButton">
+          <div class="boxButton-price">
+            <span>Price:</span>
+            <b>12 999 $.</b>
+          </div>
+          <button class="button-iconPlus">
+            <img
+              class="icon_plus"
+              src="@/assets/images/VectorPlus.svg"
+              alt="Plus"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="box">
+        <button class="heart-icon">
+          <img src="@/assets/images/heart.svg" alt="" />
+        </button>
+        <img class="nike-sneaker" src="@/assets/images/image7.jpg" alt="" />
+        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
+        <div class="boxButton">
+          <div class="boxButton-price">
+            <span>Price:</span>
+            <b>12 999 $.</b>
+          </div>
+          <button class="button-iconPlus">
+            <img
+              class="icon_plus"
+              src="@/assets/images/VectorPlus.svg"
+              alt="Plus"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="box">
+        <button class="heart-icon">
+          <img src="@/assets/images/heart.svg" alt="" />
+        </button>
+        <img class="nike-sneaker" src="@/assets/images/image13.jpg" alt="" />
+        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
+        <div class="boxButton">
+          <div class="boxButton-price">
+            <span>Price:</span>
+            <b>12 999 $.</b>
+          </div>
+          <button class="button-iconPlus">
+            <img
+              class="icon_plus"
+              src="@/assets/images/VectorPlus.svg"
+              alt="Plus"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import Banner from "@/components/Banner.vue";
-import Products from "@/components/Products.vue";
 export default {
-  components: {
-    Navbar,
-    Banner,
-    Products,
-  },
-
+  components: {},
   data() {
     return {
-      products: [
-        {
-          id: 1,
-          name: "Nike Blazer Mid Suede Mens Sneakers",
-          img: require("@/assets/images/image6.jpg"),
-        },
-        {
-          id: 2,
-          name: "Nike Blazer Mid Suede Nike Air Max 270",
-          img: require("@/assets/images/image7.jpg"),
-        },
-        {
-          id: 3,
-          name: "X Aka Boku Future Rider Nike Blazer Mid",
-          img: require("@/assets/images/image8.jpg"),
-        },
-        {
-          id: 4,
-          name: "X Aka Boku Future Under Armour Curry 8",
-          img: require("@/assets/images/image9.jpg"),
-        },
-        {
-          id: 5,
-          name: "X Aka Boku Future Under Nike Kyrie 7",
-          img: require("@/assets/images/image10.jpg"),
-        },
-        {
-          id: 6,
-          name: "X Aka Boku Future Jordan Air Jordan 11",
-          img: require("@/assets/images/image11.jpg"),
-        },
-        {
-          id: 7,
-          name: "X Aka Boku Nike LeBron XVIII",
-          img: require("@/assets/images/image12.jpg"),
-        },
-        {
-          id: 8,
-          name: "X Aka Boku Nike Lebron XVII",
-          img: require("@/assets/images/image13.jpg"),
-        },
-        {
-          id: 9,
-          name: "X Aka Boku Nike Blazer Mid Suede",
-          img: require("@/assets/images/image14.jpg"),
-        },
-      ],
+      openMenu: true,
     };
   },
 };
 </script>
 
 <style>
-.container {
-  max-width: 100%;
-
-  /* background: linear-gradient(
-    129.86deg,
-    #21e8c4 -20.42%,
-    #179b93 -3.13%,
-    #267b87 24.22%,
-    #0f474f 72.75%
-  ); */
-}
 </style>

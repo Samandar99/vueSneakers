@@ -5,4 +5,387 @@
     margin: 0;
     padding: 0;
     font-family: 'RR';
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.navbar {
+    width: 100%;
+
+}
+
+nav {
+    height: 80px;
+    width: 1100px;
+    max-width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: space-around;
+
+    /* position: absolute;
+    z-index: 99; */
+}
+
+
+
+.nav-items {
+    display: flex;
+
+    gap: 23px;
+}
+
+.nav__left {
+    display: flex;
+    align-items: center;
+    gap: 47px;
+
+}
+
+
+.logo__nav {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    gap: 10px;
+}
+
+.nav__input-search {
+    width: 128px;
+    height: 27px;
+    background: #D9D9D9;
+    border-radius: 23px;
+}
+
+.nav-items li a {
+    color:
+        #ECE2E2;
+}
+
+.nav__input-search {
+    display: flex;
+    align-items: center;
+
+}
+
+.nav__input-search input {
+    width: 100%;
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.nav__input-search img {
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+}
+
+.nav__input-search input::placeholder {
+    padding-left: 10px;
+
+}
+
+.nav__Search {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1.6rem;
+    right: 3rem;
+}
+
+.close-icon {
+    color: #fff;
+}
+
+.btn-close {
+    display: none;
+}
+
+
+/* media navbar */
+
+@media (max-width: 766px) and (min-width: 300px) {
+    .btn-close {
+        display: block;
+    }
+
+    .nav-items {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 23px;
+    }
+
+    .nike__icon {
+        display: none;
+    }
+
+    .nav__Search {
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* .navbar {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    } */
+
+    nav.active {
+        height: 80px;
+    }
+
+    .nav__left.actives {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        z-index: 99;
+        background: linear-gradient(129.86deg, #21E8C4 -20.42%, #179B93 -3.13%, #267B87 24.22%, #0F474F 72.75%);
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .cart-icons {
+        text-align: center;
+    }
+
+    .logo__nav {
+        display: flex;
+
+    }
+
+    .nav__left {
+        display: flex;
+        flex-direction: column;
+        gap: 47px;
+
+    }
+}
+
+
+/* banner style */
+.container__banner {
+    width: 100%;
+    background: linear-gradient(129.86deg, #21E8C4 -20.42%, #179B93 -3.13%, #267B87 24.22%, #0F474F 72.75%);
+}
+
+.banner {
+    width: 950px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+
+
+.banner__btn {
+    width: 174px;
+    height: 52px;
+    background: linear-gradient(106.81deg, #179B93 43.2%, rgba(217, 217, 217, 0.71) 61.6%);
+    border-radius: 38px;
+    color: #FAFF23;
+    font-size: 18px;
+    font-weight: 900;
+    border: none;
+    margin-top: 60px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.banner__btn:hover {
+
+    color: #404040;
+}
+
+.banner__text {
+    width: 350px;
+}
+
+
+.banner__foto {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+   
+}
+
+
+
+
+
+
+/* products style */
+.products-wrpper {
+    max-width: 100%;
+    width: 1000px;
+
+    margin: auto;
+}
+
+.sneakers {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box {
+    border: 1px solid #f3f3f3;
+    padding: 30px;
+    width: 220px;
+    border-radius: 40px;
+    transition: all 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.box:hover {
+    box-shadow: rgba(5, 7, 141, 0.10) 0px 5px 15px 0px;
+
+}
+
+.boxButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxButton-price {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+}
+
+.icon_plus {
+    width: 11px;
+    height: 11px;
+}
+
+.nike-sneaker {
+    width: 133px;
+    height: 112px;
+    object-fit: cover;
+}
+
+.button-iconPlus {
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    box-sizing: border-box;
+    border-radius: 8px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.headeProducts-title {
+    margin-bottom: 50px;
+
+}
+
+span {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #bdbdbd;
+}
+
+.heart-icon {
+    background: none;
+    border: 1px solid #f8f8f8;
+    position: absolute;
+    left: 1.5rem;
+    top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+}
+
+@media (min-width: 969px) and (max-width: 1009px) {
+    .sneakers {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-left: 2rem;
+    }
+
+    .headeProducts-title {
+        margin-bottom: 40px;
+        margin-left: 30px;
+    }
+}
+
+@media (min-width: 776px) and (max-width: 968.9px) {
+    .sneakers {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 2rem;
+    }
+
+    .headeProducts-title {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 775.9px) {
+    .sneakers {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 2rem;
+    }
+
+    .headeProducts-title {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 479.9px) {
+    .sneakers {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 0rem;
+    }
+
+    .headeProducts-title {
+        margin-bottom: 40px;
+        text-align: center;
+    }
 }
