@@ -229,10 +229,19 @@ nav {
     width: 500px;
     height: 300px;
     object-fit: cover;
-   
+    position: relative;
+    z-index: 1;
 }
 
-
+.os {
+    width: 373px;
+    height: 84px;
+    background: #D9D9D9;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 71px;
+    position: absolute;
+    top: 10rem;
+}
 
 
 

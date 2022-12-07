@@ -45,10 +45,9 @@
         <button class="banner__btn">SHOP NOW</button>
       </div>
       <div class="banner__right">
+        <img class="banner__foto" src="@/assets/images/nike.png" alt="" />
         <div class="os">
-          <img class="banner__foto" src="@/assets/images/nike.png" alt="" />
         </div>
-        
       </div>
     </div>
   </section>
