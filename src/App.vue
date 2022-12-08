@@ -1,151 +1,90 @@
 <template>
-  <section class="container__banner">
-    <div class="navbar">
-      <nav :class="{ active: !openMenu }">
-        <div class="logo__nav">
-          <img src="@/assets/images/NIKE.svg" alt="" />
-          <img
-            class="nike__icon"
-            src="@/assets/images/simple-icons_nike.png"
-            alt=""
-          />
-        </div>
-
-        <div class="nav__left" :class="{ actives: !openMenu }">
-          <ul class="nav-items">
-            <li><a href="">Home</a></li>
-            <li><a href="">Women</a></li>
-            <li><a href="">Kids</a></li>
-            <li><a href="">Customise</a></li>
-          </ul>
-          <div class="nav__Search">
-            <div class="nav__input-search">
-              <img class="cart__icon" src="@/assets/images/Vector.svg" alt="" />
-              <input type="text" placeholder="Search" />
-            </div>
-            <div class="cart-icons">
-              <img src="@/assets/images/Combined-Shape.svg" alt="" />
-            </div>
-          </div>
-        </div>
-        <button class="btn-close" @click="openMenu = !openMenu">
-          <i class="fa fa-times fa-2x close-icon" v-if="openMenu"></i>
-          <i class="fa-solid fa-bars fa-2x close-icon" v-else></i>
-        </button>
-      </nav>
-    </div>
-
-    <div class="banner">
-      <div class="banner__left">
-        <h1>JUST DO IT</h1>
-        <p class="banner__text">
-          Innovated to withstand your toughest matches, this updated design puts
-          flexible, durable materials exactly where they're needed most.
-        </p>
-        <button class="banner__btn">SHOP NOW</button>
-      </div>
-      <div class="banner__right">
-        <img class="banner__foto" src="@/assets/images/nike.png" alt="" />
-        <div class="os">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="products-wrpper">
-    <h1 class="headeProducts-title">All running shoes</h1>
-
-    <div class="sneakers">
-      <div class="box">
-        <button class="heart-icon">
-          <img src="@/assets/images/heart.svg" alt="" />
-        </button>
-        <img class="nike-sneaker" src="@/assets/images/image11.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="box">
-        <button class="heart-icon">
-          <img src="@/assets/images/heart.svg" alt="" />
-        </button>
-        <img class="nike-sneaker" src="@/assets/images/image6.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="box">
-        <button class="heart-icon">
-          <img src="@/assets/images/heart.svg" alt="" />
-        </button>
-        <img class="nike-sneaker" src="@/assets/images/image7.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-      <div class="box">
-        <button class="heart-icon">
-          <img src="@/assets/images/heart.svg" alt="" />
-        </button>
-        <img class="nike-sneaker" src="@/assets/images/image13.jpg" alt="" />
-        <h5>Nike Blazer Mid Suede Mens Sneakers</h5>
-        <div class="boxButton">
-          <div class="boxButton-price">
-            <span>Price:</span>
-            <b>12 999 $.</b>
-          </div>
-          <button class="button-iconPlus">
-            <img
-              class="icon_plus"
-              src="@/assets/images/VectorPlus.svg"
-              alt="Plus"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
+  
+  <Header />
+  <Products :products="products" />
+  <About />
+  <Subescribe />
+  <Footer />
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
+import Products from "@/components/Products.vue";
+import About from "@/components/About.vue";
+import Subescribe from "@/components/Subescribe.vue";
+import Footer from "@/components/Footer.vue";
+
 export default {
-  components: {},
+  components: {
+    Header,
+    Products,
+    About,
+    Subescribe,
+    Footer,
+  },
+
   data() {
     return {
-      openMenu: true,
+      products: [
+        {
+          id: 1,
+          name: "Nike Blazer Mid Suede Mens Sneakers",
+          price: "12 999 $",
+          images: require("@/assets/images/image1.png"),
+        },
+
+        {
+          id: 2,
+          name: "Nike Blazer Mid Nike Air Max 270",
+          price: "12 999 $",
+          images: require("@/assets/images/image7.jpg"),
+        },
+
+        {
+          id: 3,
+          name: "Nike Blazer Puma X Aka Boku Future Rider",
+          price: "8 499 $",
+          images: require("@/assets/images/image8.jpg"),
+        },
+
+        {
+          id: 4,
+          name: "Nike Blazer Puma X Aka Boku Future Rider",
+          price: "8 499 $",
+          images: require("@/assets/images/image9.jpg"),
+        },
+        {
+          id: 5,
+          name: "Nike Blazer Кроссовки Nike Kyrie 7",
+          price: "11 299 $",
+          images: require("@/assets/images/image10.jpg"),
+        },
+        {
+          id: 6,
+          name: "Men's Nike Kyrie Flytrap IV",
+          price: "13 999 $",
+          images: require("@/assets/images/image11.jpg"),
+        },
+
+        {
+          id: 7,
+          name: "Men's Puma X Aka Boku Future Rider",
+          price: "8 999 $",
+          images: require("@/assets/images/image12.jpg"),
+        },
+        {
+          id: 8,
+          name: "Men's Nike Kyrie Flytrap IV",
+          price: "8 999 $",
+          images: require("@/assets/images/image13.jpg"),
+        },
+        {
+          id: 9,
+          name: "Men's Jordan Air Jordan 11",
+          price: "16 499 $",
+          images: require("@/assets/images/image14.jpg"),
+        },
+      ],
     };
   },
 };
