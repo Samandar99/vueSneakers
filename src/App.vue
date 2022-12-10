@@ -1,7 +1,7 @@
 <template>
-  
+  <Drawer :opens="opens"/>
   <Header />
-  <Products :products="products" />
+  <Products :products="products" @send="get"/>
   <About />
   <Subescribe />
   <Footer />
@@ -13,16 +13,18 @@ import Products from "@/components/Products.vue";
 import About from "@/components/About.vue";
 import Subescribe from "@/components/Subescribe.vue";
 import Footer from "@/components/Footer.vue";
+import Drawer from "@/components/Drawer.vue";
 
 export default {
   components: {
+    Drawer,
     Header,
     Products,
     About,
     Subescribe,
     Footer,
   },
-
+ 
   data() {
     return {
       products: [
@@ -85,8 +87,17 @@ export default {
           images: require("@/assets/images/image14.jpg"),
         },
       ],
+      opens: true,
     };
   },
+  methods: {
+    get(name){
+      console.log(name);
+      this.opens = name;
+      console.log(this.opens);
+    }
+  }
+
 };
 </script>
 

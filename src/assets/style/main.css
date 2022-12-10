@@ -9,6 +9,9 @@
     text-decoration: none;
 }
 
+body{
+    font-family: 'RR';
+}
 
 .navbar {
     width: 100%;

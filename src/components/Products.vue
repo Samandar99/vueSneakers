@@ -14,7 +14,7 @@
             <span>Price:</span>
             <b>{{ product.price }}</b>
           </div>
-          <button class="button-iconPlus">
+          <button class="button-iconPlus" @click="send(true)">
             <img
               class="icon_plus"
               src="@/assets/images/VectorPlus.svg"
@@ -32,6 +32,12 @@ export default {
   props: {
     products: {
       typeof: Array,
+    },
+  },
+  methods: {
+    send(name) {
+      // console.log(name);
+      this.$emit("send", name);
     },
   },
 };
