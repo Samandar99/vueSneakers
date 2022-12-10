@@ -1,9 +1,9 @@
 <template>
   
-  <div class="drawer-container" v-if="openDrawer">
+  <div class="drawer-container" v-if="opens" v-show="s">
     <div class="header-drawer">
       <h3 class="drawer-title">Корзина</h3>
-      <button class="drawer__back-icon2" @click="openDrawer = false">
+      <button class="drawer__back-icon2" @click="opens = false">
         <img src="@/assets/images/back.svg" alt="" />
       </button>
     </div>
@@ -121,8 +121,8 @@ export default {
   data() {
     console.log(this.opens);
     return {
-      openDrawer: this.opens,
-      open: false,
+      openDrawer: true,
+      isopen: true,
     };
   },
 };

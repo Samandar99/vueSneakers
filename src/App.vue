@@ -87,14 +87,14 @@ export default {
           images: require("@/assets/images/image14.jpg"),
         },
       ],
-      opens: true,
+      opens: false,
     };
   },
   methods: {
     get(name){
-      console.log(name);
+      // console.log(name);
       this.opens = name;
-      console.log(this.opens);
+      // console.log(this.opens);
     }
   }
 
