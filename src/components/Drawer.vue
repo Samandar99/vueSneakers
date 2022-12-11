@@ -1,13 +1,11 @@
 <template>
-  
-  <div class="drawer-container" v-if="opens" v-show="s">
+  <div class="drawer-container" v-if="opens">
     <div class="header-drawer">
       <h3 class="drawer-title">Корзина</h3>
-      <button class="drawer__back-icon2" @click="opens = false">
+      <button class="drawer__back-icon2" @click="sens(!true)">
         <img src="@/assets/images/back.svg" alt="" />
       </button>
     </div>
-
     <div class="items">
       <div class="drawer-block">
         <div class="boxs">
@@ -117,14 +115,21 @@ export default {
       typeof: Boolean,
     },
   },
-
   data() {
     console.log(this.opens);
     return {
-      openDrawer: true,
+      openDrawer: this.opens,
       isopen: true,
+     
     };
   },
+  methods: {
+    sens(names){
+      this.$emit('sens',names)
+    }
+  }
+  
+  
 };
 </script>
 

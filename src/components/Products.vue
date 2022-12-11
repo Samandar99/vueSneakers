@@ -14,12 +14,20 @@
             <span>Price:</span>
             <b>{{ product.price }}</b>
           </div>
-          <button class="button-iconPlus" @click="send(true)">
+          <button
+            class="button-iconPlus"
+            @click="send(true, product.id)"
+            v-if="!buttonClick"
+          >
             <img
               class="icon_plus"
               src="@/assets/images/VectorPlus.svg"
               alt="Plus"
             />
+          </button>
+
+          <button class="save-icon" v-if="buttonClick === product.id ">
+            <img class="icon-save" src="@/assets/images/saveicon.svg" alt="" />
           </button>
         </div>
       </div>
@@ -34,14 +42,31 @@ export default {
       typeof: Array,
     },
   },
+
+  data() {
+    return {
+      buttonClick: "",
+    };
+  },
   methods: {
-    send(name) {
-      // console.log(name);
+    send(name, id) {
+      console.log(name);
       this.$emit("send", name);
+      let index = this.products.findIndex((todo) => todo.id === id);
+
+      this.buttonClick = ++index;
+
+      console.log(++index);
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
+.save-icon {
+  border: none;
+  border-radius: 8px;
+  height: 32px;
+  width: 32px;
+}
 </style>

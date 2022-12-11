@@ -1,5 +1,5 @@
 <template>
-  <Drawer :opens="opens"/>
+  <Drawer :opens="opens" @sens="getr1"/>
   <Header />
   <Products :products="products" @send="get"/>
   <About />
@@ -92,10 +92,12 @@ export default {
   },
   methods: {
     get(name){
-      // console.log(name);
       this.opens = name;
-      // console.log(this.opens);
+    },
+    getr1(names){
+      this.opens = names;
     }
+    
   }
 
 };
