@@ -1,7 +1,7 @@
 <template>
-  <Drawer :opens="opens" @sens="getr1"/>
+  <Drawer :opens="opens" @sens="getr1" :cards="cards"/>
   <Header />
-  <Products :products="products" @send="get"/>
+  <Products :products="products" @send="get" @productscard="getcard" />
   <About />
   <Subescribe />
   <Footer />
@@ -24,7 +24,7 @@ export default {
     Subescribe,
     Footer,
   },
- 
+
   data() {
     return {
       products: [
@@ -88,18 +88,21 @@ export default {
         },
       ],
       opens: false,
+      cards: [],
     };
   },
   methods: {
-    get(name){
+    get(name) {
       this.opens = name;
     },
-    getr1(names){
+    getr1(names) {
       this.opens = names;
-    }
-    
-  }
-
+    },
+    getcard(product) {
+      this.cards.push(product);
+      console.log(this.cards);
+    },
+  },
 };
 </script>
 

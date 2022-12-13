@@ -8,79 +8,15 @@
     </div>
     <div class="items">
       <div class="drawer-block">
-        <div class="boxs">
+        <div class="boxs" v-for="(car, index) in cards" :key="index">
           <div>
-            <img class="boxs-img" src="@/assets/images/image10.jpg" alt="" />
+            <img class="boxs-img" :src="car.images" alt="" />
           </div>
           <div class="boxes__alltext">
             <p class="text-sneaker__name">
-              Nike Blazer Puma X Aka Boku Future Rider
+              {{ car.name }}
             </p>
-            <b>12 999 $</b>
-          </div>
-          <button class="drawer__back-icon">
-            <img src="@/assets/images/back.svg" alt="" />
-          </button>
-        </div>
-        <div class="boxs">
-          <div>
-            <img class="boxs-img" src="@/assets/images/image12.jpg" alt="" />
-          </div>
-          <div class="boxes__alltext">
-            <p class="text-sneaker__name">Nike Blazer Mid Nike Air Max 270</p>
-            <b>8 499 $</b>
-          </div>
-          <button class="drawer__back-icon">
-            <img src="@/assets/images/back.svg" alt="" />
-          </button>
-        </div>
-        <div class="boxs">
-          <div>
-            <img class="boxs-img" src="@/assets/images/image10.jpg" alt="" />
-          </div>
-          <div class="boxes__alltext">
-            <p class="text-sneaker__name">
-              Nike Blazer Puma X Aka Boku Future Rider
-            </p>
-            <b>12 999 $</b>
-          </div>
-          <button class="drawer__back-icon">
-            <img src="@/assets/images/back.svg" alt="" />
-          </button>
-        </div>
-        <div class="boxs">
-          <div>
-            <img class="boxs-img" src="@/assets/images/image12.jpg" alt="" />
-          </div>
-          <div class="boxes__alltext">
-            <p class="text-sneaker__name">Nike Blazer Mid Nike Air Max 270</p>
-            <b>8 499 $</b>
-          </div>
-          <button class="drawer__back-icon">
-            <img src="@/assets/images/back.svg" alt="" />
-          </button>
-        </div>
-        <div class="boxs">
-          <div>
-            <img class="boxs-img" src="@/assets/images/image10.jpg" alt="" />
-          </div>
-          <div class="boxes__alltext">
-            <p class="text-sneaker__name">
-              Nike Blazer Puma X Aka Boku Future Rider
-            </p>
-            <b>12 999 $</b>
-          </div>
-          <button class="drawer__back-icon">
-            <img src="@/assets/images/back.svg" alt="" />
-          </button>
-        </div>
-        <div class="boxs">
-          <div>
-            <img class="boxs-img" src="@/assets/images/image12.jpg" alt="" />
-          </div>
-          <div class="boxes__alltext">
-            <p class="text-sneaker__name">Nike Blazer Mid Nike Air Max 270</p>
-            <b>8 499 $</b>
+            <b>{{ car.price }}</b>
           </div>
           <button class="drawer__back-icon">
             <img src="@/assets/images/back.svg" alt="" />
@@ -114,22 +50,23 @@ export default {
     opens: {
       typeof: Boolean,
     },
+    cards: {
+      typeof: Array,
+    },
   },
   data() {
     console.log(this.opens);
+    console.log(this.cards);
     return {
       openDrawer: this.opens,
       isopen: true,
-     
     };
   },
   methods: {
-    sens(names){
-      this.$emit('sens',names)
-    }
-  }
-  
-  
+    sens(names) {
+      this.$emit("sens", names);
+    },
+  },
 };
 </script>
 

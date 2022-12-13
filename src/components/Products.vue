@@ -26,13 +26,14 @@
             <b>{{ product.price }}</b>
           </div>
 
+          <div></div>
           <button class="save-icon" v-if="buttonClick === product.id">
             <img class="icon-save" src="@/assets/images/saveicon.svg" alt="" />
           </button>
 
           <button
             class="button-iconPlus"
-            @click="send(true, product.id)"
+            @click="send(true, product.id, product)"
             v-else
           >
             <img
@@ -60,6 +61,7 @@ export default {
       buttonClick: true,
       heart: true,
       cards: [],
+      saveCards: [],
       // card: this.products[0],
     };
   },
@@ -69,25 +71,25 @@ export default {
       this.cards.push(id);
       console.log(this.cards);
     },
+
     isfavorite(number) {
       // console.log(number);
 
-      let dupChars = this.cards.filter((element, index) => {
-        return this.cards.indexOf(element) !== index;
-      });
-      this.cards = dupChars;
-      
-      console.log(dupChars);
+      this.cards = [];
     },
 
-    send(name, id) {
-      console.log(name);
+    send(name, id, product) {
+      console.log(id);
       this.$emit("send", name);
+
       let index = this.products.findIndex((todo) => {
         return todo.id === id;
       });
       this.buttonClick = ++index;
       console.log(++index);
+      this.$emit('productscard',product)
+      
+      
     },
   },
 };
