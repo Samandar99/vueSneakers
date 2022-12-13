@@ -46,7 +46,10 @@
       <img class="korzina" src="@/assets/images/cart.svg" alt="" />
       <h3>Cart is empty</h3>
       <p>Add at least one pair of sneakers to place an order.</p>
-      <button>come back</button>
+      <button>
+        <img src="@/assets/images/arrowleft.svg" alt="">
+        come back
+      </button>
     </div>
   </div>
 </template>
@@ -207,11 +210,28 @@ export default {
   margin: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .korzina{
   width: 120px;
   height: 120px;
   object-fit: cover;
+  margin-bottom: 21px;
+}
+
+.block_empty p{
+  margin-top: 8px; 
+}
+.block_empty button{
+  margin-top: 40px; 
+  padding: 20px 90px;
+  border-radius: 18px;
+  border: none;
+  display: flex;
+  align-items: center;
+  background: #9DD458;
+  color: #fff;
 }
 
 </style>
