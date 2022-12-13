@@ -6,7 +6,7 @@
         <img src="@/assets/images/back.svg" alt="" />
       </button>
     </div>
-    <div class="items">
+    <div class="items" v-if="cards.length === 0 ? false : true">
       <div class="drawer-block">
         <div class="boxs" v-for="(car, index) in cards" :key="index">
           <div>
@@ -41,6 +41,13 @@
         </ul>
       </div>
     </div>
+
+    <div v-else class="block_empty">
+      <img class="korzina" src="@/assets/images/cart.svg" alt="" />
+      <h3>Cart is empty</h3>
+      <p>Add at least one pair of sneakers to place an order.</p>
+      <button>come back</button>
+    </div>
   </div>
 </template>
 
@@ -67,7 +74,8 @@ export default {
       this.$emit("sens", names);
     },
     deleProducts(carId) {
-      this.$emit("dellCard",carId)
+      this.$emit("dellCard", carId);
+      console.log(this.cards.length);
     },
   },
 };
@@ -191,4 +199,19 @@ export default {
 .greenButton:hover {
   background: #77d703;
 }
+
+.block_empty{
+  text-align: center;
+  width: 300px;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.korzina{
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
 </style>
