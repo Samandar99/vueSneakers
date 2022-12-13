@@ -1,5 +1,5 @@
 <template>
-  <Drawer :opens="opens" @sens="getr1" :cards="cards"/>
+  <Drawer :opens="opens" @sens="getr1" :cards="cards" @dellCard="getdell" />
   <Header />
   <Products :products="products" @send="get" @productscard="getcard" />
   <About />
@@ -101,6 +101,10 @@ export default {
     getcard(product) {
       this.cards.push(product);
       console.log(this.cards);
+    },
+    getdell(carId) {
+      let cardsIndex = this.cards.findIndex((goods) => goods.id === carId);
+      this.cards.splice(cardsIndex, 1);
     },
   },
 };

@@ -18,7 +18,7 @@
             </p>
             <b>{{ car.price }}</b>
           </div>
-          <button class="drawer__back-icon">
+          <button class="drawer__back-icon" @click="deleProducts(car.id)">
             <img src="@/assets/images/back.svg" alt="" />
           </button>
         </div>
@@ -65,6 +65,9 @@ export default {
   methods: {
     sens(names) {
       this.$emit("sens", names);
+    },
+    deleProducts(carId) {
+      this.$emit("dellCard",carId)
     },
   },
 };
