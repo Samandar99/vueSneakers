@@ -43,7 +43,9 @@
         </ul>
       </div>
     </div>
-
+    
+    
+    
     <div v-else class="empty-container">
       <div class="block_empty">
         <img class="korzina" src="@/assets/images/cart.svg" alt="" />
