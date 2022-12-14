@@ -4,26 +4,26 @@
 
     <div class="sneakers">
       <div class="box" v-for="product in products" :key="product.id">
-        <button class="heart-icon" @click="favorite(product.id)">
-          <img src="@/assets/images/heart.svg" alt="" />
+        <button class="heart-icon" @click="favorite(product)">
+          <img src="@/assets/images/heart.svg" alt="" v-if="!product.fav" />
+          <img src="@/assets/images/hearlaev.svg" alt="" v-if="product.fav" />
         </button>
 
-        <div
+        <!-- <div
           v-for="(card, index) in cards"
           :key="index"
           @click="isfavorite(card)"
-        >
-          <button class="heart-icon" v-if="card === product.id">
-            <img src="@/assets/images/hearlaev.svg" alt="" />
-          </button>
-        </div>
+        > -->
+        <!-- <button class="heart-icon" @click="aaa">
+          </button> -->
+        <!-- </div> -->
 
         <img class="nike-sneaker" :src="product.images" alt="" />
         <h5>{{ product.name }}</h5>
         <div class="boxButton">
           <div class="boxButton-price">
             <span>Price:</span>
-            <b>{{ product.price }}</b>
+            <b>{{ product.price }} $</b>
           </div>
 
           <div></div>
@@ -67,15 +67,17 @@ export default {
   },
 
   methods: {
-    favorite(id) {
-      this.cards.push(id);
-      console.log(this.cards);
+    favorite(prod) {
+      console.log(prod);
+      prod.fav = !prod.fav;
+      // this.cards.push(id);
+      // console.log(this.cards);
     },
 
     isfavorite(number) {
-      // console.log(number);
+      console.log(number);
 
-      this.cards = [];
+      // this.cards = [];
     },
 
     send(name, id, product) {
@@ -87,9 +89,7 @@ export default {
       });
       this.buttonClick = ++index;
       console.log(++index);
-      this.$emit('productscard',product)
-      
-      
+      this.$emit("productscard", product);
     },
   },
 };

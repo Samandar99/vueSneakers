@@ -16,7 +16,7 @@
             <p class="text-sneaker__name">
               {{ car.name }}
             </p>
-            <b>{{ car.price }}</b>
+            <b>{{ car.price }} $</b>
           </div>
           <button class="drawer__back-icon" @click="deleProducts(car.id)">
             <img src="@/assets/images/back.svg" alt="" />
@@ -28,7 +28,7 @@
           <li>
             <span>Total:</span>
             <div class="dotted"></div>
-            <b>21 498 $</b>
+            <b v-for="(pric, index) in cards" :key="index"> {{pric.price}} $ </b>
           </li>
           <li>
             <span>Tax</span>
@@ -42,14 +42,16 @@
       </div>
     </div>
 
-    <div v-else class="block_empty">
-      <img class="korzina" src="@/assets/images/cart.svg" alt="" />
-      <h3>Cart is empty</h3>
-      <p>Add at least one pair of sneakers to place an order.</p>
-      <button>
-        <img src="@/assets/images/arrowleft.svg" alt="">
-        come back
-      </button>
+    <div v-else class="empty-container">
+      <div class="block_empty">
+        <img class="korzina" src="@/assets/images/cart.svg" alt="" />
+        <h3>Cart is empty</h3>
+        <p>Add at least one pair of sneakers to place an order.</p>
+        <button class="back__button">
+          <img class="arrowleft" src="@/assets/images/arrowleft.svg" alt="" />
+          come back
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -66,10 +68,10 @@ export default {
   },
   data() {
     console.log(this.opens);
-    console.log(this.cards);
     return {
       openDrawer: this.opens,
       isopen: true,
+      total: this.cards.price,
     };
   },
   methods: {
@@ -203,35 +205,47 @@ export default {
   background: #77d703;
 }
 
-.block_empty{
+.empty-container {
+  width: 300px;
+  height: 90vh;
+  /* background: #9dd558; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.block_empty {
   text-align: center;
   width: 300px;
-  height: auto;
-  margin: auto;
+  height: 300px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.korzina{
+.korzina {
   width: 120px;
   height: 120px;
   object-fit: cover;
   margin-bottom: 21px;
 }
 
-.block_empty p{
-  margin-top: 8px; 
+.block_empty p {
+  margin-top: 8px;
 }
-.block_empty button{
-  margin-top: 40px; 
+.block_empty button {
+  margin-top: 40px;
   padding: 20px 90px;
   border-radius: 18px;
   border: none;
   display: flex;
+  gap: 20px;
   align-items: center;
-  background: #9DD458;
+  background: #9dd458;
   color: #fff;
+  cursor: pointer;
 }
-
 </style>
