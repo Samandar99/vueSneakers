@@ -16,7 +16,7 @@
             <p class="text-sneaker__name">
               {{ car.name }}
             </p>
-            <b>{{ car.price }} $</b>
+            <b>{{ car.price }}</b>
           </div>
           <button class="drawer__back-icon" @click="deleProducts(car.id)">
             <img src="@/assets/images/back.svg" alt="" />
@@ -28,7 +28,9 @@
           <li>
             <span>Total:</span>
             <div class="dotted"></div>
-            <b v-for="(pric, index) in cards" :key="index"> {{pric.price}} $ </b>
+            <b>
+              {{ totalPrice }}
+            </b>
           </li>
           <li>
             <span>Tax</span>
@@ -65,13 +67,17 @@ export default {
     cards: {
       typeof: Array,
     },
+    totalPrice: {
+      typeof: Number,
+      default: 0,
+    }
   },
   data() {
     console.log(this.opens);
     return {
       openDrawer: this.opens,
       isopen: true,
-      total: this.cards.price,
+      orderProducts: false,
     };
   },
   methods: {
@@ -83,6 +89,7 @@ export default {
       console.log(this.cards.length);
     },
   },
+  computed: {},
 };
 </script>
 

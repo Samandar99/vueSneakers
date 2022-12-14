@@ -9,14 +9,7 @@
           <img src="@/assets/images/hearlaev.svg" alt="" v-if="product.fav" />
         </button>
 
-        <!-- <div
-          v-for="(card, index) in cards"
-          :key="index"
-          @click="isfavorite(card)"
-        > -->
-        <!-- <button class="heart-icon" @click="aaa">
-          </button> -->
-        <!-- </div> -->
+       
 
         <img class="nike-sneaker" :src="product.images" alt="" />
         <h5>{{ product.name }}</h5>
@@ -81,8 +74,8 @@ export default {
     },
 
     send(name, id, product) {
-      console.log(id);
       this.$emit("send", name);
+      this.$emit("prices", product.price);
 
       let index = this.products.findIndex((todo) => {
         return todo.id === id;
@@ -92,6 +85,8 @@ export default {
       this.$emit("productscard", product);
     },
   },
+  
+  
 };
 </script>
 
