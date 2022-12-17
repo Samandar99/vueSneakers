@@ -7,7 +7,7 @@
       </button>
     </div>
     <div class="items" v-if="cards.length === 0 ? false : true">
-      <div class="drawer-block">
+      <div class="drawer-block" v-if="orderProducts">
         <div class="boxs" v-for="(car, index) in cards" :key="index">
           <div>
             <img class="boxs-img" :src="car.images" alt="" />
@@ -23,7 +23,7 @@
           </button>
         </div>
       </div>
-      <div class="footer-drawer">
+      <div class="footer-drawer" v-if="orderProducts">
         <ul class="listsave">
           <li>
             <span>Total:</span>
@@ -37,15 +37,24 @@
             <div class="dotted"></div>
             <b>1074 $</b>
           </li>
-          <button class="greenButton">
+          <button class="greenButton" @click="orderProducts = false">
             Checkout <img src="@/assets/images/arrow.svg" alt="" />
           </button>
         </ul>
       </div>
+      <div v-else class="container-order">
+        <img class="order-icon" src="@/assets/images/orders.svg" alt="" />
+        <h3 class="title-order">Order is processed!</h3>
+        <p class="order-text">
+          Your order #18 will be delivered to courier soon
+        </p>
+        <button class="order-button">
+          <img class="arrowleft" src="@/assets/images/arrowleft.svg" alt="" />
+          come back
+        </button>
+      </div>
     </div>
-    
-    
-    
+
     <div v-else class="empty-container">
       <div class="block_empty">
         <img class="korzina" src="@/assets/images/cart.svg" alt="" />
@@ -72,14 +81,14 @@ export default {
     totalPrice: {
       typeof: Number,
       default: 0,
-    }
+    },
   },
   data() {
     console.log(this.opens);
     return {
       openDrawer: this.opens,
       isopen: true,
-      orderProducts: false,
+      orderProducts: true,
     };
   },
   methods: {
@@ -114,6 +123,7 @@ export default {
   position: fixed;
   right: 0;
   width: 420px;
+  max-width: 100%;
   height: 100%;
   background: #fff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
@@ -256,5 +266,80 @@ export default {
   background: #9dd458;
   color: #fff;
   cursor: pointer;
+}
+
+.container-order {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.order-icon {
+  width: 83px;
+  height: 120px;
+  object-fit: cover;
+}
+.order-button {
+  margin-top: 40px;
+  padding: 20px 90px;
+  border-radius: 18px;
+  border: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: #9dd458;
+  color: #fff;
+  cursor: pointer;
+}
+.title-order {
+  margin-top: 2rem;
+}
+
+/* media */
+
+@media (max-width: 766px) {
+  .drawer-container {
+    position: fixed;
+    right: 0;
+    width: 60%;
+    max-width: 100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+    padding: 0px 100px 100px 0px;
+    z-index: 9;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 220px;
+    height: 85%;
+    position: fixed;
+    overflow: auto;
+    gap: 30px;
+    padding: 0px 50px 0px 10px;
+  }
+  .boxs {
+    border: 1px solid #f3f3f3;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    width: 100%;
+    padding: 0px 0px;
+  }
+  .header-drawer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+  margin-top: 100px;
+  margin-left: 2rem;
+}
 }
 </style>
