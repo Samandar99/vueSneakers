@@ -119,7 +119,8 @@ export default {
     },
     www(totalPrice) {
       this.total += totalPrice
-    }
+    },
+   
   },
   // mounted() {
   //   let x = 10000;

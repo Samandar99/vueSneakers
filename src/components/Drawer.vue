@@ -1,4 +1,4 @@
-<template>
+<template >
   <div class="drawer-container" v-if="opens">
     <div class="header-drawer">
       <h3 class="drawer-title">Корзина</h3>
@@ -48,7 +48,7 @@
         <p class="order-text">
           Your order #18 will be delivered to courier soon
         </p>
-        <button class="order-button">
+        <button class="order-button" @click="sens(!true)">
           <img class="arrowleft" src="@/assets/images/arrowleft.svg" alt="" />
           come back
         </button>
@@ -60,7 +60,7 @@
         <img class="korzina" src="@/assets/images/cart.svg" alt="" />
         <h3>Cart is empty</h3>
         <p>Add at least one pair of sneakers to place an order.</p>
-        <button class="back__button">
+        <button class="back__button" @click="sens(!true)">
           <img class="arrowleft" src="@/assets/images/arrowleft.svg" alt="" />
           come back
         </button>
@@ -89,6 +89,7 @@ export default {
       openDrawer: this.opens,
       isopen: true,
       orderProducts: true,
+      empty: true,
     };
   },
   methods: {
@@ -300,7 +301,23 @@ export default {
 
 /* media */
 
-@media (max-width: 766px) {
+@media (max-width: 767px) and (min-width: 501px) {
+  .header-drawer {
+    margin-top: 4rem;
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 75%;
+    position: fixed;
+    overflow: auto;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 500.9px) {
   .drawer-container {
     position: fixed;
     right: 0;
@@ -312,13 +329,39 @@ export default {
     padding: 0px 100px 100px 0px;
     z-index: 9;
   }
+  .empty-container {
+    width: 300px;
+    height: 90vh;
+    /* background: #9dd558; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+  }
+  .block_empty p {
+    margin-top: 8px;
+    width: 200px;
+  }
+
+  .block_empty {
+    text-align: left;
+    width: 300px;
+    height: 300px;
+    /* background: rebeccapurple; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+  }
 
   .items {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 220px;
-    height: 85%;
+    height: 75%;
     position: fixed;
     overflow: auto;
     gap: 30px;
@@ -329,17 +372,33 @@ export default {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 0px;
+
     width: 100%;
     padding: 0px 0px;
+    margin-bottom: 2rem;
   }
   .header-drawer {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 30px;
-  margin-top: 100px;
-  margin-left: 2rem;
-}
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+    margin-top: 100px;
+    margin-left: 2rem;
+  }
+  .greenButton img {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .korzina {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+  .back__button {
+    padding: 20px 20px !important;
+  }
 }
 </style>

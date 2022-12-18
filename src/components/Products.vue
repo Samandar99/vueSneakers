@@ -73,10 +73,11 @@ export default {
       // this.cards = [];
     },
 
-    send(name, id, product) {
+    send(name, id, product,boo) {
       this.$emit("send", name);
       this.$emit("prices", product.price);
-
+     
+      
       let index = this.products.findIndex((todo) => {
         return todo.id === id;
       });
