@@ -1,10 +1,25 @@
 <template>
-  <Drawer :opens="opens" @sens="getr1" :cards="cards" @dellCard="getdell" :totalPrice="total" />
+  <Drawer
+    :opens="opens"
+    @sens="getr1"
+    :cards="cards"
+    @dellCard="getdell"
+    :totalPrice="total"
+  />
   <Header />
-  <Products :products="products" @send="get" @productscard="getcard" @price="totalPrice" @prices="www" />
+  
+  
+  <Products
+    :products="products"
+    @send="get"
+    @productscard="getcard"
+    @price="totalPrice"
+    @prices="www"
+  />
   <About />
   <Subescribe />
   <Footer />
+
 </template>
 
 <script>
@@ -99,7 +114,7 @@ export default {
       ],
       opens: false,
       cards: [],
-      total: 0, 
+      total: 0,
     };
   },
   methods: {
@@ -118,9 +133,8 @@ export default {
       this.cards.splice(cardsIndex, 1);
     },
     www(totalPrice) {
-      this.total += totalPrice
+      this.total += totalPrice;
     },
-   
   },
   // mounted() {
   //   let x = 10000;

@@ -18,6 +18,7 @@
             <li><a href="">Kids</a></li>
             <li><a href="">Customise</a></li>
           </ul>
+          
           <div class="nav__Search">
             <div class="nav__input-search">
               <img class="cart__icon" src="@/assets/images/Vector.svg" alt="" />
@@ -64,6 +65,7 @@
       </div>
     </div>
   </section>
+  <router-view/>
 </template>
 
 <script>
